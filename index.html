@@ -1,0 +1,156 @@
+<!-- ========================================= -->
+<!-- File : index.html -->
+<!-- Aplikasi Absensi Kelas Harian -->
+<!-- Dibuat menggunakan HTML, CSS, dan JavaScript -->
+<!-- ========================================= -->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aplikasi Absensi Kelas Harian</title>
+
+    <!-- CSS Tampilan -->
+    <style>
+
+        /* Mengatur tampilan body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Kotak utama */
+        .container {
+            width: 400px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        /* Judul */
+        h2 {
+            text-align: center;
+            color: darkblue;
+        }
+
+        /* Label form */
+        label {
+            font-weight: bold;
+        }
+
+        /* Input dan textarea */
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+
+        /* Tombol */
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Efek saat mouse diarahkan */
+        button:hover {
+            background-color: darkblue;
+        }
+
+        /* Kotak hasil */
+        .hasil {
+            margin-top: 20px;
+            background-color: #e6f0ff;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Container utama -->
+    <div class="container">
+
+        <!-- Judul aplikasi -->
+        <h2>Aplikasi Absensi Kelas Harian</h2>
+
+        <!-- Form Input -->
+
+        <label>Nama Siswa</label>
+        <input type="text" id="nama" placeholder="Masukkan nama siswa">
+
+        <label>Kelas</label>
+        <input type="text" id="kelas" placeholder="Masukkan kelas">
+
+        <label>Nomor Absen</label>
+        <input type="number" id="absen" placeholder="Masukkan nomor absen">
+
+        <label>Waktu Absen</label>
+        <input type="text" id="waktu" placeholder="Contoh: 07.00 WIB">
+
+        <!-- Tombol kirim -->
+        <button onclick="kirimAbsensi()">Kirim Absensi</button>
+
+        <!-- Tempat hasil output -->
+        <div class="hasil" id="hasil">
+
+            <h3>Rekap Absensi</h3>
+
+            <p><b>Nama Siswa :</b> <span id="outNama"></span></p>
+            <p><b>Kelas :</b> <span id="outKelas"></span></p>
+            <p><b>Nomor Absen :</b> <span id="outAbsen"></span></p>
+            <p><b>Waktu Absen :</b> <span id="outWaktu"></span></p>
+
+            <hr>
+
+            <!-- Pesan hasil -->
+            <p>
+                Absensi anda sudah kami terima,<br>
+                kami akan mengirimkan petugas terkait.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+
+        // Fungsi untuk mengirim absensi
+        function kirimAbsensi() {
+
+            // Mengambil data dari input
+            let nama = document.getElementById("nama").value;
+            let kelas = document.getElementById("kelas").value;
+            let absen = document.getElementById("absen").value;
+            let waktu = document.getElementById("waktu").value;
+
+            // Menampilkan data ke output
+            document.getElementById("outNama").innerText = nama;
+            document.getElementById("outKelas").innerText = kelas;
+            document.getElementById("outAbsen").innerText = absen;
+            document.getElementById("outWaktu").innerText = waktu;
+
+            // Menampilkan hasil
+            document.getElementById("hasil").style.display = "block";
+        }
+
+    </script>
+
+</body>
+</html>
